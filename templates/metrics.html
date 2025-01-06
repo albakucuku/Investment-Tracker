@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Metrics</title>
+</head>
+<body>
+    <h1>Portfolio Metrics</h1>
+    <h3>Total Portfolio Value: ${{ total_value }}</h3>
+    <h3>Overall Portfolio Percentage Change: {{ overall_change }}%</h3>
+
+    <h2>Asset Performance:</h2>
+    <table>
+        <tr>
+            <th>Asset</th>
+            <th>Current Value</th>
+            <th>Performance (%)</th>
+        </tr>
+        {% for asset in portfolio.values %}
+            <tr>
+                <td>{{ asset[0] }}</td>
+                <td>{{ asset[2] * asset[3] }}</td>
+                <td>{{ asset[5] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+    <a href="{{ url_for('home') }}">Back to Portfolio</a>
+</body>
+</html>
